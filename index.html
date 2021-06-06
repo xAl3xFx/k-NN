@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="knn.js"></script>
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body style="display: flex" onload="loadTable()">
+    <div style="text-align: center;">
+        <h1>Starting Dataset</h1>
+        <table id="dataset-table">
+            <thead>
+            <tr>
+                <th>Осъществени разходи на клиентите (в хил. лв.)</th>
+                <th>Честота на покупките </th>
+                <th>Покупки с намаление (от специални оферти) - да или не </th>
+            </tr>
+            </thead>
+            <tbody id="dataset-table-body">
+            </tbody>
+        </table>
+    </div>
+
+    <div style="text-align: left; margin-left: 3rem; margin-right: 3rem; min-width: 15%" >
+        <h1 style="text-align: center">Operations</h1>
+        <div style=" border: 1px solid black; padding: 1rem; height: 100%">
+            <div id="test-entry" style="border: 1px solid black; padding: 0.5rem">
+                <h3 style="text-align: center">Класифициране на точка</h3>
+                <label for="test-entry-amount">Сума: </label>
+                <input id="test-entry-amount" />
+                <br>
+                <br>
+                <label for="test-entry-frequency">Честота: </label>
+                <select name="frequencies" id="test-entry-frequency">
+                    <option value="Very often">Very often</option>
+                    <option value="Often">Often</option>
+                    <option value="Sometimes">Sometimes</option>
+                    <option value="Rarely">Rarely</option>
+                </select>
+                <br>
+                <br>
+                <label for="test-entry-kParam">Параметър К: </label>
+                <input id="test-entry-kParam" />
+                <br>
+                <br>
+                <button onclick="classify()">Класифицирай</button>
+                <label id="test-entry-label" style="display: none"></label>
+
+            </div>
+            <button style="margin-top: 3rem" onclick="start()">Произволно тестване</button>
+
+
+
+        </div>
+    </div>
+
+    <div style="text-align: center; display: none" id="testing">
+        <h1 style="text-align: center">Testing Dataset</h1>
+        <div style="display:flex;">
+            <table style="margin-right: 0.5rem" id="kTable">
+                <thead>
+                <tr>
+                    <th>Стойност на К</th>
+                    <th>Процент на правилни класификации</th>
+                </tr>
+                </thead>
+                <tbody id="kTable-table-body">
+                </tbody>
+            </table>
+            <table style="margin-left: 0.5rem" id="testing-table">
+                <thead>
+                <tr>
+                    <th>Осъществени разходи на клиентите (в хил. лв.)</th>
+                    <th>Честота на покупките </th>
+                    <th>Покупки с намаление (от специални оферти) - да или не </th>
+                </tr>
+                </thead>
+                <tbody id="testing-table-body">
+                </tbody>
+            </table>    
+        </div>
+    </div>
+
+</body>
+</html>
